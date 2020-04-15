@@ -22,7 +22,8 @@ public class HelloFunction implements Function<APIGatewayProxyRequestEvent, APIG
 	public APIGatewayProxyResponseEvent apply(APIGatewayProxyRequestEvent input) {
 		APIGatewayProxyResponseEvent apiGatewayProxyResponseEvent = new APIGatewayProxyResponseEvent();
 		apiGatewayProxyResponseEvent.setStatusCode(HttpStatus.OK.value());
-		apiGatewayProxyResponseEvent.setBody("hello lambda function from " + (input.getBody() == null ? "get method" : " post/put/patch method"));
+		apiGatewayProxyResponseEvent.setBody("hello lambda function from " 
+				+ (input.getBody() == null ? "get method" : " post/put/patch method") + input.getBody());
 		return apiGatewayProxyResponseEvent;
 	}
 
